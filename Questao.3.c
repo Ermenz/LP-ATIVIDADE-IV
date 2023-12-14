@@ -45,7 +45,7 @@ int compra (struct pruduto) {
 	if (produtoDesejado = "cama") {
 	   300 - quantidadeDesejada 
 	} else {
-		printf("produto inv·lido")
+		printf("produto inv√°lido")
 	}
 	
 
@@ -57,18 +57,18 @@ int compra (struct pruduto) {
 void estoque () {
   printf("Produto : %s", nomeCaderno);
   printf("Quantidade em estoque : %d", quantidadeCaderno);
-  printf("PreÁo por unidade : %f", precoCaderno);
+  printf("Pre√ßo por unidade : %f", precoCaderno);
 
 
   printf("Produto : %s", nomeComputador);
   printf("Quantidade em estoque : %d", quantidadeComputador);
-  printf("PreÁo por unidade :  %f", precoCComputador);
+  printf("Pre√ßo por unidade :  %f", precoCComputador);
   
   
   
   printf("Produto : %s%s", nomeCama);
   printf("Quantidade em estoque : %d", quantidadeCama);
-  printf("PreÁo por unidade :%f", precoCama);	
+  printf("Pre√ßo por unidade :%f", precoCama);	
 }
 
 
@@ -107,7 +107,7 @@ if (numero == 1) {
 
 
 
-w}while (numero != 3);
+}while (numero != 3);
 
 
 
