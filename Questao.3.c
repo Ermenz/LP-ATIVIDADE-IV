@@ -4,122 +4,117 @@
 #include <locale.h>
 
 
-struct produto {
-
-char nomeCaderno [200] = "caderno"
-int quantidadeCaderno = 300;
-float precoCaderno = 4;
-
-char nomeComputador [200] = "computador"
-int quantidadeComputador = 500;
-float precoComputador = 300;
-
-char nomeCama [200] = "cama"
-int quantidadeCama = 300;
-float precoCama = 25;
+// Struct para entrada de produtos
+struct Produto {
+    char nome[200];
+    int quantidade;
+    float preco;
 };
 
 
-int compra (struct pruduto) {
-	
-	setlocale(LC_ALL, "portuguese");
-		
-  int quantidadeDesejada;
-  char produtoDesejado [200];	
-	
-	printf("Digite o nome do produto que deseja comprar");
-	gets(produtoDesejado);
-	
-	
-	printf("Digite a quantidade que deseja comprar");
-	scanf("%d", &quantidadeDesejada);
-	
-	if (produtoDesejado = "caderno") {
-	   300 - quantidadeDesejada 
-	}
-	
-	if (produtoDesejado = "computador") {
-	   300 - quantidadeDesejada 
-	}
-	
-	if (produtoDesejado = "cama") {
-	   300 - quantidadeDesejada 
-	} else {
-		printf("produto inválido")
-	}
-	
+// struct para determinar a quantidade de produtos e o preço deles
+struct Produto caderno = {"Caderno", 300, 4};
+struct Produto computador = {"Computador", 500, 300};
+struct Produto cama = {"Cama", 300, 25};
 
-  return quantidadeDesejada;
+
+// função  para a entrada de produtos 
+int compra(struct Produto *produto) {
+    setlocale(LC_ALL, "portuguese");
+
+    char produtoDesejado[200];
+    int quantidadeDesejada;
+
+    printf("Digite o nome do produto que deseja comprar: ");
+    scanf("%s", produtoDesejado);
+
+    printf("Digite a quantidade que deseja comprar: ");
+    scanf("%d", &quantidadeDesejada);
+
+
+// validação do produto que deseja comprar
+    if (strcmp(produtoDesejado, "caderno") == 0) {
+        if (quantidadeDesejada <= caderno.quantidade) {
+            caderno.quantidade -= quantidadeDesejada;
+            printf("Compra realizada\n");
+        } else {
+            printf("Quantidade no estoque insuficiente\n");
+        }
+    } else if (strcmp(produtoDesejado, "computador") == 0) {
+        if (quantidadeDesejada <= computador.quantidade) {
+            computador.quantidade -= quantidadeDesejada;
+            printf("Compra realizada \n");
+        } else {
+            printf("Quantidade no estoque insuficiente\n");
+        }
+    } else if (strcmp(produtoDesejado, "cama") == 0) {
+        if (quantidadeDesejada <= cama.quantidade) {
+            cama.quantidade -= quantidadeDesejada;
+            printf("Compra realizada \n");
+        } else {
+            printf("Quantidade no estoque insuficiente\n");
+        }
+    } else {
+        printf("Produto inválido\n");
+    }
+
+    return quantidadeDesejada;
 }
 
+// Função void com os dados dos produtos registrados
+void estoque() {
+	  setlocale(LC_ALL, "portuguese");
+	
+    printf("Produto: %s\n", caderno.nome);
+    printf("Quantidade em estoque: %d\n", caderno.quantidade);
+    printf("Preço por unidade: %.2f\n\n", caderno.preco);
 
+    printf("Produto: %s\n", computador.nome);
+    printf("Quantidade em estoque: %d\n", computador.quantidade);
+    printf("Preço por unidade: %.2f\n\n", computador.preco);
 
-void estoque () {
-  printf("Produto : %s", nomeCaderno);
-  printf("Quantidade em estoque : %d", quantidadeCaderno);
-  printf("Preço por unidade : %f", precoCaderno);
-
-
-  printf("Produto : %s", nomeComputador);
-  printf("Quantidade em estoque : %d", quantidadeComputador);
-  printf("Preço por unidade :  %f", precoCComputador);
-  
-  
-  
-  printf("Produto : %s%s", nomeCama);
-  printf("Quantidade em estoque : %d", quantidadeCama);
-  printf("Preço por unidade :%f", precoCama);	
+    printf("Produto: %s\n", cama.nome);
+    printf("Quantidade em estoque: %d\n", cama.quantidade);
+    printf("Preço por unidade: %.2f\n\n", cama.preco);
 }
 
+int main() {
+    int numero;
 
-
-
-
-
-
-
-
-
-
-int main {
-
-printf("Tabela\n");
-printf("\n")
-int numero;
-
-do {
-
-printf("1 - Realizar uma compra")
-printf("2- Consultar estoque")
-printf("3 - Sair do programa.")
-
-printf("informe o que deseja fazer");
-scanf("%d", &numero);
-
-if (numero == 1) {
-	compra(produto);
-} if (numero == 2) {
-	 estoque();
-} if (nimero == 3){
-	printf("Fechando programa");
-}
      
+   
+    do {
+    	
+        printf("--------------Tabela------------\n");
+        printf("\n");
+        printf("1 - Realizar uma compra\n");
+        printf("2 - Consultar estoque\n");
+        printf("3 - Sair do programa\n");
+        printf("----------------------------------\n")
 
+        printf("Informe o que deseja fazer: ");
+        scanf("%d", &numero);
 
+        if (numero == 1) {
+            compra(&caderno); 
+                compra(&cama); 
+                 compra(&computador); 
+            
+        } else if (numero == 2) {
+            estoque();
+        } else if (numero == 3) {
+            printf("Fechando programa\n");
+        } else {
+            printf("Opção inválida\n");
+        }
+    } while (numero != 3);
 
-}while (numero != 3);
-
-
-
-
-
-
-
-
-
-
-
-
-return 0;
+    return 0;
 }
+
+
+
+
+
+
 
